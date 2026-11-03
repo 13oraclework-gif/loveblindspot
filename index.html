@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>你的戀愛盲點測試｜沂十三 13 oracle</title>
+<title>點解想拍拖嘅你一直都仲係單身？｜沂十三 13 oracle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
 <style>
@@ -30,7 +30,8 @@ h1,h2{font-family:"Noto Serif TC","PMingLiU",serif;font-weight:900;line-height:1
 button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .screen{display:none}.screen.on{display:block}
-.hero h1{font-size:clamp(34px,9vw,46px)}
+.hero h1{font-size:clamp(30px,8.4vw,42px)}
+.hero .kick{font-size:17px;font-weight:700;color:var(--accent);margin-top:14px}
 .hero p{font-size:17px;color:var(--mute);margin:18px 0 8px}
 .hero .how{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:24px 0;font-size:15px}
 .hero .how b{color:var(--accent)}
@@ -51,7 +52,7 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .res-tag{font-size:14px;color:var(--mute);margin-bottom:8px}
 .res h2{font-size:clamp(30px,8vw,40px)}
 .res .sub{font-size:17px;margin:14px 0 26px}
-.bars{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:14px}
+.bars{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:24px}
 .bar .lab{display:flex;justify-content:space-between;font-size:15px;margin-bottom:5px}
 .bar .lab b{font-weight:700}
 .track{height:12px;border-radius:6px;background:var(--line);overflow:hidden}
@@ -65,6 +66,7 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .cta .btn{background:var(--peach);color:#2A2347}
 .cta .note{margin:12px 0 0;font-size:13px;opacity:.7}
 .foot{margin-top:28px;font-size:12px;color:var(--mute);text-align:center}
+.bdesc{margin:9px 0 0;font-size:14px;color:var(--mute);line-height:1.7}
 .sum{margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
 .sum h3{font-family:"Noto Serif TC",serif;font-size:19px;margin:0 0 14px}
 .sum .it{margin:0 0 16px;font-size:15px}
@@ -78,10 +80,11 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
   <div class="brand">沂十三 13 oracle｜塔羅 × 文王卦</div>
 
   <section id="s-intro" class="screen on hero">
-    <h1>你的戀愛盲點測試</h1>
+    <h1>點解想拍拖嘅你<br>一直都仲係單身？</h1>
+    <div class="kick">測你的戀愛盲點</div>
     <p>你係「等命定」、「揀到眼花」，定係「未準備好」？</p>
     <div class="how">18 題，約 1 分鐘。請憑直覺答，諗得越耐越唔準 😂<br>
-      <b>1</b> 很不像我　<b>2</b> 有些像我　<b>3</b> 和我一樣</div>
+      <b>1</b> 很不像我　<b>2</b> 有些像我　<b>3</b> 非常像我</div>
     <button class="btn" id="start">開始測試</button>
   </section>
 
@@ -92,7 +95,7 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
     <div class="opts" id="opts">
       <button class="opt" data-v="1"><span class="n">1</span>很不像我</button>
       <button class="opt" data-v="2"><span class="n">2</span>有些像我</button>
-      <button class="opt" data-v="3"><span class="n">3</span>和我一樣</button>
+      <button class="opt" data-v="3"><span class="n">3</span>非常像我</button>
     </div>
     <button class="back" id="back" hidden>← 上一題</button>
   </section>
@@ -102,11 +105,10 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
     <h2 id="r-title"></h2>
     <p class="sub" id="r-sub"></p>
     <div class="bars" id="bars"></div>
-    <p class="desc" id="r-desc"></p>
     <p class="ask" id="r-ask"></p>
     <div class="cta">
       <h3>測完係咪好似俾人睇穿咗？😂</h3>
-      <p>傾向只係起點。點解你會卡喺呢度、你嘅正緣幾時出現、仲有邊啲位要調整，塔羅同文王卦先答得到。</p>
+      <p>認識到自己的盲點只係起點。點解你會卡喺呢度、你嘅下一位對象幾時出現、仲有邊啲位要調整，塔羅同文王卦幫你更高效解答。</p>
       <button class="btn" id="copy">複製我的結果</button>
       <p class="note" id="copy-note">DM @13_oracle，貼上結果，就可以預約 $380 靈感單針（20 分鐘，塔羅或文王卦擇一）。</p>
     </div>
@@ -202,10 +204,10 @@ function finish(){
     ask="三個聲音入面，邊一個最大聲？";
   }
   $("r-title").textContent=title;$("r-sub").textContent=sub;
-  $("r-desc").textContent=desc;$("r-ask").textContent=ask;
+  $("r-ask").textContent=ask;
   var bh="";
   TYPES.forEach(function(t,i){
-    bh+='<div class="bar'+(sc[i]===max?" top":"")+'"><div class="lab"><b>'+t.icon+" "+t.name.replace("型","")+"傾向</b><span>"+sc[i]+' / 18</span></div><div class="track"><div class="fill" data-w="'+Math.round((sc[i]-6)/12*100)+'" style="background:'+t.color+'"></div></div></div>';
+    bh+='<div class="bar'+(sc[i]===max?" top":"")+'"><div class="lab"><b>'+t.icon+" "+t.name.replace("型","")+"傾向</b><span>"+sc[i]+' / 18</span></div><div class="track"><div class="fill" data-w="'+Math.round((sc[i]-6)/12*100)+'" style="background:'+t.color+'"></div></div><p class="bdesc">'+t.sub+t.desc+'</p></div>';
   });
   $("bars").innerHTML=bh;
   lastText="我嘅戀愛盲點係："+title+"\n💫浪漫 "+sc[0]+"｜🔍完美主義 "+sc[1]+"｜🫥自我懷疑 "+sc[2]+"\n#沂十三 #戀愛盲點測試";
