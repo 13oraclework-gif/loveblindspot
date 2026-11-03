@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>你的戀愛盲點測試｜沂十三 13 oracle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ECE9F6;--card:#FFFFFF;--ink:#2A2347;--mute:#6E678C;--line:#D5CFEA;
+  --accent:#5B3FD0;--on-accent:#FFFFFF;--peach:#FFB88C;--c0:#E8508A;--c1:#5B3FD0;--c2:#1E9E86;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17132B;--card:#221C3D;--ink:#F0EDFB;--mute:#A59EC6;--line:#3A3262;
+  --accent:#9A85FF;--on-accent:#17132B;--c0:#FF7DAE;--c1:#9A85FF;--c2:#4FD1B5;
+}}
+:root[data-theme="dark"]{
+  --bg:#17132B;--card:#221C3D;--ink:#F0EDFB;--mute:#A59EC6;--line:#3A3262;
+  --accent:#9A85FF;--on-accent:#17132B;--c0:#FF7DAE;--c1:#9A85FF;--c2:#4FD1B5;
+}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;padding:28px 20px 56px}
+h1,h2{font-family:"Noto Serif TC","PMingLiU",serif;font-weight:900;line-height:1.35;margin:0}
+.brand{font-size:14px;color:var(--mute);margin-bottom:28px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.screen{display:none}.screen.on{display:block}
+.hero h1{font-size:clamp(34px,9vw,46px)}
+.hero p{font-size:17px;color:var(--mute);margin:18px 0 8px}
+.hero .how{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:24px 0;font-size:15px}
+.hero .how b{color:var(--accent)}
+.btn{display:block;width:100%;border:0;border-radius:999px;background:var(--accent);color:var(--on-accent);font-weight:700;font-size:17px;padding:16px 24px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);margin-top:12px}
+.prog{display:flex;gap:3px;margin-bottom:34px}
+.prog i{flex:1;height:5px;border-radius:3px;background:var(--line)}
+.prog i.done{background:var(--accent)}
+.qno{font-size:14px;color:var(--mute);margin-bottom:10px}
+.q{font-family:"Noto Serif TC",serif;font-weight:700;font-size:clamp(21px,5.6vw,26px);line-height:1.6;min-height:7.2em;margin:0 0 20px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;font-size:16px;transition:border-color .15s,transform .15s}
+.opt:hover{border-color:var(--accent)}
+.opt.sel{border-color:var(--accent);background:var(--accent);color:var(--on-accent);transform:scale(.985)}
+.opt span.n{font-family:"Noto Serif TC",serif;font-weight:900;font-size:22px;width:24px}
+.back{margin-top:22px;background:none;border:0;color:var(--mute);font-size:15px;padding:6px 0}
+.back[hidden]{display:none}
+.res-tag{font-size:14px;color:var(--mute);margin-bottom:8px}
+.res h2{font-size:clamp(30px,8vw,40px)}
+.res .sub{font-size:17px;margin:14px 0 26px}
+.bars{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:14px}
+.bar .lab{display:flex;justify-content:space-between;font-size:15px;margin-bottom:5px}
+.bar .lab b{font-weight:700}
+.track{height:12px;border-radius:6px;background:var(--line);overflow:hidden}
+.fill{height:100%;width:0;border-radius:6px;transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.bar.top .lab b::after{content:" ← 最高";color:var(--mute);font-weight:400;font-size:13px}
+.desc{margin:24px 0 0;font-size:16px}
+.ask{margin:18px 0 0;padding:16px 18px;border-left:4px solid var(--peach);background:var(--card);border-radius:0 12px 12px 0;font-family:"Noto Serif TC",serif;font-weight:700;font-size:17px}
+.cta{margin-top:30px;background:var(--ink);color:var(--bg);border-radius:18px;padding:24px 20px}
+.cta h3{margin:0 0 10px;font-family:"Noto Serif TC",serif;font-size:21px;line-height:1.5}
+.cta p{margin:0 0 16px;font-size:15px;opacity:.9}
+.cta .btn{background:var(--peach);color:#2A2347}
+.cta .note{margin:12px 0 0;font-size:13px;opacity:.7}
+.foot{margin-top:28px;font-size:12px;color:var(--mute);text-align:center}
+.sum{margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
+.sum h3{font-family:"Noto Serif TC",serif;font-size:19px;margin:0 0 14px}
+.sum .it{margin:0 0 16px;font-size:15px}
+.sum .it b{display:block;font-size:16px;margin-bottom:2px}
+.sum .it em{display:block;font-style:normal;color:var(--mute);margin-top:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="brand">沂十三 13 oracle｜塔羅 × 文王卦</div>
+
+  <section id="s-intro" class="screen on hero">
+    <h1>你的戀愛盲點測試</h1>
+    <p>你係「等命定」、「揀到眼花」，定係「未準備好」？</p>
+    <div class="how">18 題，約 1 分鐘。請憑直覺答，諗得越耐越唔準 😂<br>
+      <b>1</b> 很不像我　<b>2</b> 有些像我　<b>3</b> 和我一樣</div>
+    <button class="btn" id="start">開始測試</button>
+  </section>
+
+  <section id="s-quiz" class="screen">
+    <div class="prog" id="prog" aria-hidden="true"></div>
+    <div class="qno" id="qno"></div>
+    <p class="q" id="qtext"></p>
+    <div class="opts" id="opts">
+      <button class="opt" data-v="1"><span class="n">1</span>很不像我</button>
+      <button class="opt" data-v="2"><span class="n">2</span>有些像我</button>
+      <button class="opt" data-v="3"><span class="n">3</span>和我一樣</button>
+    </div>
+    <button class="back" id="back" hidden>← 上一題</button>
+  </section>
+
+  <section id="s-res" class="screen res">
+    <div class="res-tag">你的婚戀傾向是</div>
+    <h2 id="r-title"></h2>
+    <p class="sub" id="r-sub"></p>
+    <div class="bars" id="bars"></div>
+    <p class="desc" id="r-desc"></p>
+    <p class="ask" id="r-ask"></p>
+    <div class="cta">
+      <h3>測完係咪好似俾人睇穿咗？😂</h3>
+      <p>傾向只係起點。點解你會卡喺呢度、你嘅正緣幾時出現、仲有邊啲位要調整，塔羅同文王卦先答得到。</p>
+      <button class="btn" id="copy">複製我的結果</button>
+      <p class="note" id="copy-note">DM @13_oracle，貼上結果，就可以預約 $380 靈感單針（20 分鐘，塔羅或文王卦擇一）。</p>
+    </div>
+    <button class="btn ghost" id="again">重新測試</button>
+  </section>
+
+  <section class="sum">
+  <h3>三種婚戀傾向，一分鐘睇完</h3>
+  <p class="it"><b>💫 浪漫主義</b>你想搵靈魂伴侶，好似童話故事嘅「從此過着幸福快樂嘅生活」。你愛嘅係愛情本身，覺得自己單身，只係因為未遇到啱嘅人。<em>座右銘：該發生的，注定會發生。</em></p>
+  <p class="it"><b>🔍 完美主義</b>你鍾意做功課，每個選項都要翻開睇清楚，確定 100% 先肯決定。<em>座右銘：為什麼要降低標準呢？</em></p>
+  <p class="it"><b>🫥 自我懷疑</b>你覺得自己未成為理想中嘅自己，所以未準備好談戀愛。做任何事，你都想準備好先開始。<em>座右銘：等我成為別人眼中的理想對象，再說。</em></p>
+</section>
+
+  <div class="foot">三種婚戀傾向及測驗概念取自 Logan Ury 著作《How to Not Die Alone》，題目經繁體中文改編，結果只供娛樂參考</div>
+</main>
+
+<script>
+var QS=[
+"如果沒有一見鍾情的感覺，我就不會和這個人第二次約會了。",
+"我約會的時候會問自己：這個人符合我的要求嗎？",
+"當我自己取得進步以後（比如：瘦了、或者感覺經濟更穩定了），我就準備好去約會了。",
+"我希望和我的伴侶有過一段「甜蜜邂逅」的浪漫故事。",
+"我在購買比較重要的東西之前，通常會先看別人的評論。",
+"我現在沒有時間約會。",
+"我相信我的意中人正在等着我，只是我還沒有遇到那個他（她）。",
+"我在做決定的時候，通常會反覆權衡所有可能的選項。",
+"我的朋友們告訴我，我需要多出去走走。",
+"我發現手機上的交友軟件不夠浪漫，我希望以一種更自然的方式遇見意中人。",
+"我從來不降低標準，對這一點我很自豪。",
+"我很少約會。",
+"我不相信日久生情。要麼就一見鍾情，要麼就完全無感。",
+"當我遇到正確的人時我就會知道，因為我有 100% 的把握。",
+"如果我想吸引最優秀的人，我首先要成為最優秀的人。",
+"愛情是一種直覺。感覺來了的時候，你就會知道。",
+"我的朋友們覺得我太挑剔了。",
+"我現在以事業為主，約會的事以後再說。"
+];
+var TYPES=[
+ {name:"浪漫主義型",icon:"💫",color:"var(--c0)",
+  sub:"你相信命中注定，亦對「感覺」好有要求。",
+  desc:"你好浪漫，但有時候會因為「未有電流」而錯過咗慢熱嘅人。",
+  ask:"你嘅姻緣，係未到時機，定係你已經擦身而過？"},
+ {name:"完美主義型",icon:"🔍",color:"var(--c1)",
+  sub:"你心入面有一份清單，條件、標準、紅線一應俱全。",
+  desc:"你唔係挑剔，只係想揀啱，但有時候揀到最後，連自己都累。",
+  ask:"清單上面嘅條件，有幾多個係你真心要，幾多個係你以為要？"},
+ {name:"自我懷疑型",icon:"🫥",color:"var(--c2)",
+  sub:"你成日諗「等我先變好啲再算」，仲有「而家真係冇時間」。",
+  desc:"其實你好值得被愛，只係未敢俾自己上場。",
+  ask:"你係真係未準備好，定係驚被拒絕，所以先話未準備好？"}
+];
+var ans=[],cur=0,lastText="";
+function $(id){return document.getElementById(id)}
+function show(id){
+  ["s-intro","s-quiz","s-res"].forEach(function(s){$(s).classList.toggle("on",s===id)});
+  window.scrollTo(0,0);
+}
+function buildProg(){
+  var h="";for(var i=0;i<QS.length;i++)h+="<i></i>";$("prog").innerHTML=h;
+}
+function render(){
+  $("qno").textContent="第 "+(cur+1)+" 題 / "+QS.length;
+  $("qtext").textContent=QS[cur];
+  var ps=$("prog").children;
+  for(var i=0;i<ps.length;i++)ps[i].className=i<cur?"done":"";
+  var os=document.querySelectorAll(".opt");
+  for(var j=0;j<os.length;j++)os[j].classList.toggle("sel",ans[cur]===+os[j].dataset.v);
+  $("back").hidden=cur===0;
+}
+function pick(v){
+  ans[cur]=v;render();
+  setTimeout(function(){
+    if(cur<QS.length-1){cur++;render()}else finish();
+  },220);
+}
+function finish(){
+  var sc=[0,0,0];
+  for(var i=0;i<QS.length;i++)sc[i%3]+=ans[i];
+  var max=Math.max.apply(null,sc),tops=[];
+  sc.forEach(function(s,i){if(s===max)tops.push(i)});
+  var title,sub,desc,ask;
+  if(tops.length===1){
+    var t=TYPES[tops[0]];
+    title=t.icon+" "+t.name;sub=t.sub;desc=t.desc;ask=t.ask;
+  }else if(tops.length===2){
+    var a=TYPES[tops[0]],b=TYPES[tops[1]];
+    title=a.icon+b.icon+" 混合型（"+a.name.replace("型","")+" × "+b.name.replace("型","")+"）";
+    sub="恭喜你，你同時有兩種傾向 😎";
+    desc=a.desc+"　"+b.desc;ask=a.ask+" 同時，"+b.ask;
+  }else{
+    title="🌈 三合一混合型";sub="三項同分，你嘅感情盲點好立體 😎";
+    desc="你同時有浪漫、完美主義同自我懷疑嘅影子，唔係不好，只係要睇清楚邊個先係今期嘅主角。";
+    ask="三個聲音入面，邊一個最大聲？";
+  }
+  $("r-title").textContent=title;$("r-sub").textContent=sub;
+  $("r-desc").textContent=desc;$("r-ask").textContent=ask;
+  var bh="";
+  TYPES.forEach(function(t,i){
+    bh+='<div class="bar'+(sc[i]===max?" top":"")+'"><div class="lab"><b>'+t.icon+" "+t.name.replace("型","")+"傾向</b><span>"+sc[i]+' / 18</span></div><div class="track"><div class="fill" data-w="'+Math.round((sc[i]-6)/12*100)+'" style="background:'+t.color+'"></div></div></div>';
+  });
+  $("bars").innerHTML=bh;
+  lastText="我嘅戀愛盲點係："+title+"\n💫浪漫 "+sc[0]+"｜🔍完美主義 "+sc[1]+"｜🫥自我懷疑 "+sc[2]+"\n#沂十三 #戀愛盲點測試";
+  show("s-res");
+  setTimeout(function(){
+    var fs=document.querySelectorAll(".fill");
+    for(var k=0;k<fs.length;k++)fs[k].style.width=Math.max(+fs[k].dataset.w,6)+"%";
+  },80);
+}
+$("start").onclick=function(){ans=[];cur=0;buildProg();render();show("s-quiz")};
+$("back").onclick=function(){if(cur>0){cur--;render()}};
+$("again").onclick=function(){ans=[];cur=0;show("s-intro")};
+document.querySelectorAll(".opt").forEach(function(b){b.onclick=function(){pick(+b.dataset.v)}});
+$("copy").onclick=function(){
+  var note=$("copy-note"),ok=false;
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(lastText).then(function(){note.textContent="已複製！貼去 IG DM @13_oracle 就得。"},function(){fallback()});
+      return;
+    }
+  }catch(e){}
+  fallback();
+  function fallback(){
+    try{
+      var ta=document.createElement("textarea");ta.value=lastText;ta.style.position="fixed";ta.style.opacity="0";
+      document.body.appendChild(ta);ta.select();ok=document.execCommand("copy");document.body.removeChild(ta);
+    }catch(e){}
+    note.textContent=ok?"已複製！貼去 IG DM @13_oracle 就得。":"未能自動複製，請截圖結果頁，再 DM @13_oracle。";
+  }
+};
+</script>
+</body>
+</html>
